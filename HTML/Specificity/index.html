@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <style>
+
+        #my-id.my-class.another-class{
+            color: aquamarine;
+        }
+
+        .my-class{
+            color: goldenrod;
+        }
+
+        #my-id.another-class{
+            color: hotpink;
+        }
+
+        p{
+            color: red;
+        }
+
+        p.my-class.another-class{
+            color: palegreen;   
+        }
+
+
+
+        #my-id{
+            color: green;
+        }
+
+        p.my-class{
+            color: gold
+        }
+
+        p#my-id{
+            color: blue;
+        }
+
+        p.another-class{
+            color: blueviolet !important;
+        }
+
+        *{
+            color: blue !important;
+        }
+
+
+       .my-class#my-id.another-class{
+            color: greenyellow !important;
+        }
+
+
+    </style>
+
+<body>
+    <div class="parent">
+
+        <p style="color: orange;" class="my-class another-class" id="my-id">This is a paragraph</p>
+    </div>
+</body>
+
+</html>
+
+/*
+Specificity scoring
+
+Universal selector: 0 points
+Element or pseudo-element selector : 1 point 
+Class, pseudo-class, or attribute selector : 10 points 
+ID selector : 100 points 
+Inline style attribute: 1000 points
+*/

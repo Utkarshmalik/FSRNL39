@@ -1,0 +1,61 @@
+/*
+Descendant Selector
+*/
+.top p{
+    /* background-color: yellow; */
+}
+
+/*
+Child Selectors 
+*/
+.top > p {
+    /* background-color: yellow; */
+}
+
+/*
+Adjacacent Sibling Selectors 
+*/
+div + p{
+    /* color: hotpink; */
+}
+
+
+/*
+Apply this color to a element having a class both m1 and m2
+*/
+.m1.m2{
+    color:blue;
+}
+
+/* 
+
+.c1 .c2{
+    color: blue;
+}
+ */
+
+
+/* 
+
+ .c1 > p{
+    color:blue;
+ } */
+
+ /* div > p {
+    color: blue;
+ } */
+
+/* 
+ input[value="Select me"]{
+    color:blue;
+ } */
+
+
+ /* input[type="button2"] {
+     color: forestgreen;
+ } */
+
+
+ #the-one>.c1.c2{
+    color: blue;
+ }

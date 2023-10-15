@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<style>
+    /*
+    Universal Selector
+    */
+    * {
+        /* color: fuchsia; */
+    }
+
+    /*
+    Element Selector
+    */
+    h1{
+       font-size: 40px;
+       background-color:blue;
+    }
+
+    /*
+     class Selector
+    */
+    .heading{
+        border:3px solid black;
+        margin:5px;
+    }
+
+    .text{
+        color: gold;
+    }
+
+    /*
+    Id Selector (#)
+    */
+    #head1{
+        border:3px solid green;
+    }
+
+    /*
+    Attribute Selectors
+    */
+
+    /* A href that contains facebook.com*/
+    [href*='facebook.com'] {
+        color:greenyellow;
+    }
+
+    /* A href that starts with facebook.com*/
+      [href^='facebook.com'] {
+        color:greenyellow;
+    }
+
+        /* A href that ends with facebook.com*/
+      [href$='facebook.com'] {
+        color:greenyellow;
+    }
+
+
+</style>
+<body>
+
+    <h1 > Welcome to Full Stack batch : Class 2 </h1>
+
+    <!-- <div class="heading text" >
+        <p id="head1" > I am learning HTML and CSS in this class  </p>
+    </div>
+
+    <div class="heading">
+        <p id="head2" > The class covers details of each and everything </p>
+    </div>
+
+    <h1> HTML </h1>
+
+    <div data-type="primary"> </div> 
+    <div data-type="secondary"> </div>
+    
+    <a href="https://www.facebook.com"> Go To Facebook </a>
+       -->
+
+            <div class="top box">
+                <div>
+                    <p>1 level deep</p>
+                    <div>
+                        <p>2 levels deep</p>
+                        <div>
+                            <p>3 levels deep</p>
+                        </div>
+                        <p> I am another paragrph</p>
+                    </div>
+                </div>
+                <p> I am at the 0th level </p>
+             </div>
+             
+             
+                <div class="box">
+                    <div>
+                        <p>1 level deep</p>
+                        <div>
+                            <p>2 levels deep</p>
+                            <div>
+                                <p>3 levels deep</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+</body>
+</html>
+
+
+<!-- inline > internal > external  -->
