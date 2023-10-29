@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .flex-container {
+            background-color: #bc8f8f;
+            display: flex;
+            flex-direction: row-reverse;
+            height: 2000px;
+            /* flex-wrap: wrap; */
+    
+            /* gap:15px; */
+        /* justify-content: flex-end; */
+       /* justify-content: center;
+       align-items: flex-end; */
+       /* justify-content: space-between; */
+       /* justify-content: space-around; */
+       /* justify-content: space-evenly;        */
+
+       align-items: center;
+     }
+
+        .flex-container>div {
+            background-color: #fdf5e6;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+            height:150px;
+            width:250px;
+        }
+
+
+        /* Justify-content allows you to align flex-items along the main axis.
+         It defines the distribution of space around the flex items along the main-axis of the flex container. */
+
+
+         /* Align items are used to align flex-items along the cross-axis. 
+         It takes the following values: - start, end, stretch, center. */
+
+    </style>
+</head>
+
+<body>
+    <h1> Flex container</h1>
+
+    <div class="flex-container">
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+    </div>
+
+    <p>
+        The flex-container should have a parent element with the
+        <em>display</em> property set as <em>flex</em>.
+    </p>
+</body>
+
+</html>
