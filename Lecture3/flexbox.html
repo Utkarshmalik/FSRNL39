@@ -6,10 +6,11 @@
         .flex-container {
             background-color: #bc8f8f;
             display: flex;
-            flex-direction: row-reverse;
-            height: 2000px;
+            flex-direction: row;
             /* flex-wrap: wrap; */
-    
+            height: 1000px;
+        justify-content: space-around;
+        align-items: center;
             /* gap:15px; */
         /* justify-content: flex-end; */
        /* justify-content: center;
@@ -18,17 +19,38 @@
        /* justify-content: space-around; */
        /* justify-content: space-evenly;        */
 
-       align-items: center;
      }
 
         .flex-container>div {
             background-color: #fdf5e6;
-            margin: 10px;
+            margin: 10px 2px;
             padding: 20px;
             font-size: 30px;
-            height:150px;
-            width:250px;
+            height:350px;
+            width:400px;
         }
+
+
+    .child1{
+        align-self:flex-start;
+        /* order:3; */
+        /* flex-grow: 4; */
+        /* flex-basis: 200px; */
+        /* flex : 4 3 200px; */
+    }
+
+     .child2{
+        /* align-self:flex-start; */
+        /* order:-1; */
+        /* flex-grow: 2; */
+        /* flex-shrink: 2; */
+    }
+
+     .child3{
+        /* align-self:flex-start; */
+        /* order:2; */
+        /* flex-grow: 3; */
+    }
 
 
         /* Justify-content allows you to align flex-items along the main axis.
@@ -38,28 +60,45 @@
          /* Align items are used to align flex-items along the cross-axis. 
          It takes the following values: - start, end, stretch, center. */
 
+
+         /* 0 - 900px */
+     @media only screen and (max-width:900px) {
+
+        .flex-container{
+            flex-direction: column;
+            height:2000px;
+        }
+}
+
+
     </style>
 </head>
 
 <body>
     <h1> Flex container</h1>
 
+    <!-- <div class="flex-container">
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Home</div>
+        <div>About</div>
+        <div>Contact</div>
+    </div> -->
+
     <div class="flex-container">
-        <div>Home</div>
-        <div>About</div>
-        <div>Contact</div>
-        <div>Home</div>
-        <div>About</div>
-        <div>Contact</div>
-        <div>Home</div>
-        <div>About</div>
-        <div>Contact</div>
-        <div>Home</div>
-        <div>About</div>
-        <div>Contact</div>
-        <div>Home</div>
-        <div>About</div>
-        <div>Contact</div>
+        <div class="child1" >Beaches</div>
+        <div class="child2" >Monuments</div>
+        <div class="child3" >Plains</div>
     </div>
 
     <p>
