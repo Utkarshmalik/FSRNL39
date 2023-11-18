@@ -55,17 +55,19 @@ let person = {
         let message = "hello";
         console.log(this);
 
-        return ()=>{
+        let sayHi = function(){
             console.log(this);
             return message + " from " + this.firstName; 
         }
+
+        sayHi();
     }
 }
 
 
 let sayHi=person.sayHello();
-let output=sayHi();
-console.log(output);
+// let output=sayHi();
+// console.log(output);
 
 
 
