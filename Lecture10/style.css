@@ -1,0 +1,73 @@
+.productList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.product{
+    border:2px solid black;
+    display: flex;
+    flex-direction: column;
+    width:350px;
+    height:450px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 7px;
+
+}
+
+.productImg{
+    width: 99%;
+    object-fit: cover;
+    border-bottom: 1px solid lightgray;
+}
+
+.productImg img{
+    max-width: 180px;
+    max-height: 180px;
+}
+
+
+.productDescription .productTile{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.productDescription .productRatings{
+
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+}
+
+
+.productDescription .productCategory{
+    font-size: 1.2rem;
+}
+
+
+.productDescription .productPrice{
+
+        font-size: 1.5rem;
+        font-weight: bold;
+
+}
+
+
+.search{
+    margin: 5px;
+    text-align: center;
+}
+
+.search input{
+    font-size: 1.2rem;
+    width:30vw;
+    min-width: 200px;
+    height:30px;
+    border:1px solid gray;
+    border-radius: 2px;
+    padding:5px;
+}
