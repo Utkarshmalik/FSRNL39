@@ -1,16 +1,32 @@
+import Navbar from "./Components/Common/Navbar/Navbar";
+import { useState } from "react";
+import LoginComp from "./Components/Login/Login";
 import ProductList from "./Components/ProductList/ProductList";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const name="Utkarsh";
 
 function App(){
 
-  return <div>
+  console.log("App comp rendered");
 
-    <h1> We are learning React basics today </h1>
+  const [isLoggedIn , setIsLoggedIn] = useState(false);
 
-    <p> My name is  {name} </p>
+   const onLogin=()=>{
+        setIsLoggedIn(true);
+  }
 
-    <ProductList/>
+  const onLogout=()=>{
+            setIsLoggedIn(false);
+  }
+
+  return <div style={{ textAlign:"center"}}>
+
+
+    { 
+       (isLoggedIn===true) ?     <ProductList onLogout={onLogout} />  
+       : <LoginComp onLogin={onLogin}  />
+
+    }
 
   </div>
 }
