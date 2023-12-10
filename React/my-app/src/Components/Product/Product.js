@@ -7,7 +7,11 @@ function Product(props){
 
     const {image, id , category, description, price, title, rating} = productDetails;
 
-    return <div className="product" >
+    function onProductClick(){
+        props.onProductClick(id);
+    }
+
+    return <div onClick={onProductClick} className="product" >
         <div className="productImg">
             <img src={image} />
         </div>
