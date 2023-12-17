@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
 import NavbarComp from "../../components/common/Navbar/Navbar";
 import SpinnerComp from "../../components/common/Spinner/Spinner";
 import { getAllMovies } from "../../api/movies";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../App";
 
 function LandingPage(){
 
+
+
+    const {theme}  = useContext(ThemeContext);
+
+    const isDarkTheme = theme==="dark";
+
+    console.log(theme);
 
     const [isLoading , setIsLoading]  = useState(true);
     const [movieList, setMovieList] = useState([]);
@@ -22,7 +30,7 @@ function LandingPage(){
         init()
     },[])
 
-    return <div>
+    return <div className={ (isDarkTheme)?"text-white bg-dark":"text-dark bg-light" } >
 
         <NavbarComp/>
         {

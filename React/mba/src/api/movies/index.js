@@ -13,3 +13,14 @@ export const getAllMovies = ()=>{
     return axios.get(URL);
    
 }
+
+
+export const getMovieDetails = (id)=>{
+
+    const PATH = `/mba/api/v1/movies/${id}`
+
+    const URL  = BASE_URL + PATH;
+    
+    return axios.get(URL);
+   
+}
