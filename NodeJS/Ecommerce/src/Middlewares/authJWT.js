@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../Models/user.model");
 const { userTypes } = require("../utils/constants");
+const { SECRET } = require("../../configs/auth.config");
 
 const verifyToken = async (req,res,next)=>{
 
@@ -11,7 +12,7 @@ const verifyToken = async (req,res,next)=>{
     }
 
 
-    jwt.verify(token,"mymecretlw",async function(err,payload){
+    jwt.verify(token,SECRET,async function(err,payload){
 
         if(err){
            return res.status(401).send({message:err.message});
@@ -52,3 +53,16 @@ module.exports={
 // CORS 
 // ENV variables
 // Deployment and access via clients 
+
+
+// CLIENT -> BACKEND
+
+// wwww.mba.backend.herokuapp.com
+
+
+// www.mba.frontend.herokuapp.com
+
+
+// Browser: wwww.mba.website.com
+
+ 

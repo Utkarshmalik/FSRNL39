@@ -2,13 +2,20 @@
 const express = require("express");
 var bodyParser = require('body-parser')
 const mongoose = require("mongoose");
+require("dotenv").config();
+var cors = require('cors')
 const ProductRoutes = require("./src/Routes/Product.routes");
 const authRoutes = require("./src/Routes/auth.routes");
 const movieRoutes = require("./src/Routes/movie.routes");
+const { PORT } = require("./configs/server.config");
+const { DB_URL } = require("./configs/db.config");
+const theatreRoutes = require("./src/Routes/theatre.routes");
+const bookingRoutes = require("./src/Routes/booking.routes");
+const paymentRoutes = require("./src/Routes/payment.routes");
 
-const dbUrl = "mongodb+srv://utmalik:qwerty123@cluster0.85op4lq.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(dbUrl)
+
+mongoose.connect(DB_URL)
 .then(()=>{
     console.log("Successfully connected to the database");
 })
@@ -18,6 +25,9 @@ mongoose.connect(dbUrl)
 
 const app = express();
 
+app.use(cors());
+
+
 // create application/json parser
 app.use(bodyParser.json())
 
@@ -25,8 +35,11 @@ app.use(bodyParser.json())
 ProductRoutes(app);
 authRoutes(app);
 movieRoutes(app);
+theatreRoutes(app);
+bookingRoutes(app);
+paymentRoutes(app);
 
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log("Your application is running on port 3000");
 })

@@ -19,8 +19,26 @@ const releaseStatus={
     blocked:"BLOCKED"
 }
 
+const bookingStatus = {
+    inProgress:"IN_PROGRESS",
+    completed:"COMPLETED",
+    cancelled:"CANCELLED",
+    expired:"EXPIRED",
+    failed:"FAILED"
+}
+
+const paymentStatus = {
+    pending:"PENDING",
+    success:"SUCCESS",
+    failed:"FAILED"
+}
+
+
+
 module.exports ={
     userTypes,
     userStatus,
-    releaseStatus
+    releaseStatus,
+    bookingStatus,
+    paymentStatus
 }
