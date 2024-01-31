@@ -1,26 +1,86 @@
-import { axiosInstance } from "../../utils/AxiosInstance";
 
 
-export const getAllTheaters = async () =>{
-    const URL = "/mba/api/v1/theatres";
+import { AxiosInstance } from "../../util/AxiosInstance";
 
-    try{
-        const response = await axiosInstance.get(URL);
-        return response;
+export const getAllTheaters = async () => {
+
+    const URL = '/mba/api/v1/theatres';
+  
+    try {
+      const response = await AxiosInstance.get(URL);
+      console.log(response)
+      return response;
+    } catch (error) {
+        console.log(error);
+        return error.response;
     }
-    catch(err){
-        return err;
-    }
-}
+  }
 
-export const getTheaterById = async (id)=>{
+  export const getTheaterById = async (cinemaId) => {
+    const URL = `/mba/api/v1/theatres/${cinemaId}`;
+  
+    try {
+      const response = await AxiosInstance.get(URL);
+      return response;
+    } catch (error) {
+        console.log(error);
+        return error.response;
+    }
+  }
 
-    const URL = `/mba/api/v1/theatres/${id}`;
-    try{
-        const response = await axiosInstance.get(URL,{headers:{"x-access-token":localStorage.getItem("accessToken")}});
-        return response;
+  
+
+  
+
+
+  export const addNewTheater = async (theater) => {
+    const URL = '/mba/api/v1/theatres';
+    try {
+      const response = await AxiosInstance.post(URL,theater);
+      return response;
+    } catch (error) {
+        console.log(error);
+      return error.response;
     }
-    catch(err){
-        return err;
+  
+  }
+
+  export const updateTheaterDetails = async (theater) => {
+    const URL = `/mba/api/v1/theatres/${theater._id}`;
+    try {
+      const response = await AxiosInstance.put(URL,theater);
+      return response;
+    } catch (error) {
+        console.log(error);
+        return error.response;
     }
-}
+  
+  }
+
+  export const deleteTheaterDetail = async (theater) => {
+    const URL = `/mba/api/v1/theatres/${theater._id}`;
+    try {
+      const response = await AxiosInstance.delete(URL);
+      return response;
+    } catch (error) {
+        console.log(error);
+        return error.response;
+    }
+  
+  }
+
+
+  export const updateTheaterMovie = async (data,theater) => {
+    const URL = `/mba/api/v1/theatres/${theater._id}/movies`;
+    try {
+      const response = await AxiosInstance.put(URL,data);
+      return response;
+    } catch (error) {
+        console.log(error);
+        return error.response;
+    }
+  
+  }
+
+
+  

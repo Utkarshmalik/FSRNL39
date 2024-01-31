@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
 import AppRoutes from './components/routes/AppRoutes';
-import React from "react";
+import '@coreui/coreui/dist/css/coreui.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-function App() {
+const App = () => {
+
   return (
-      <AppRoutes/>
-  );
+    <AppRoutes />
+  )
+
 }
 
-export default App;
+export default App

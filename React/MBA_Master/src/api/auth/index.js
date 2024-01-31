@@ -1,55 +1,70 @@
-import { axiosInstance } from "../../utils/AxiosInstance";
+import { AxiosInstance } from "../../util/AxiosInstance";
 
 
-export const signIn = async (user)=>{
 
-    const URL='/mba/api/v1/auth/signIn';
 
-    try{
-    const response= await axiosInstance.post(URL,user);
-    
-    if(response.data && response.data.accessToken){
+export const signIn = async (user) => {
 
-        const {name,userId,email,userTypes,userStatus,accessToken}=response.data;
+  const URL = '/mba/api/v1/auth/signin';
 
-        localStorage.setItem("name",name);
-        localStorage.setItem("userId",userId);
-        localStorage.setItem("email",email);
-        localStorage.setItem("userTypes",userTypes);
-        localStorage.setItem("userStatus",userStatus);
-        localStorage.setItem("accessToken",accessToken);
+  try {
+    const response = await AxiosInstance.post(URL, user);
+
+    const { name, userId, email,userTypes,userStatus ,accessToken } = response.data;
+    if(accessToken){    
+      localStorage.setItem("name", name)
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("email",email);
+      localStorage.setItem("userTypes", userTypes);
+      localStorage.setItem("userStatus",userStatus);
+      localStorage.setItem("token", accessToken);
     }
+    return response;
 
-    return response; 
-   }
-    catch(error){
-        console.log(error);
-        return error.response;
-    }
-} 
+  } catch (error) {
+      console.log(error);
+    return error.response
+  }
 
-
-export const signUp= async (user)=>{
-
-    const URL = "/mba/api/v1/auth/signup";
-
-    try{
-        const response=await axiosInstance.post(URL,user);
-        return response;
-    }
-    catch(error){
-        return error.response;
-    }
 }
 
-export const signOut= ()=>{
+export const signUp = async (user) => {
+  const URL = "/mba/api/v1/auth/signup";
 
-    localStorage.removeItem("name");
-    localStorage.removeItem("email");
-    localStorage.removeItem("userTypes");
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("userStatus");
+  try {
+    const response = await AxiosInstance.post(URL, user);
+    console.log("EEE",response,user);
+    return response;
+  } catch (error) {
+      console.log(error);
+    return error.message;
+  }
 
+}
+
+export const signOut = () => {
+  localStorage.removeItem('name');
+  localStorage.removeItem('userId');
+  localStorage.removeItem('userTypes');
+  localStorage.removeItem('userStatus');
+  localStorage.removeItem('token');
+  localStorage.removeItem('email');
+
+}
+
+
+
+
+export const updatePassword = async (userId,user) => {
+
+  const URL = `/mba/api/v1/users/${userId}`;
+
+  try {
+    const response = await AxiosInstance.put(URL, user);
+    return response;
+  } catch (error) {
+      console.log(error);
+    throw error;
+  }
 
 }

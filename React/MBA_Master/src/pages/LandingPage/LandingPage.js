@@ -1,108 +1,82 @@
-import { useEffect,useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import Navbar from "../../components/navbar/Navbar";
-import Slider from "../../components/slider/Slider";
-import  {getAllMovies} from '../../api/movie';
-import { CSpinner } from "@coreui/react";
-import { HandThumbsUpFill } from "react-bootstrap-icons";
-import Footer from "../../components/footer/Footer";
-import React from "react";
+import Slider from '../../components/slider/Slider';
+import Footer from '../../components/footer/Footer';
+import {getAllMovies} from '../../api/movie';
 
-const LandingPage=()=>{
+import Loader from '../../assets/load.gif'
+import './landingPage.css';
+const LandingPage = () => {
+    const [movieList, setMovieList] = useState([]);
+    const [pageLoading, setPageLoading] = useState(true);
 
+    const init = async () => {
 
-    const [movieList,setMovieList]=useState([]);
-    const [isLoading,setIsLoading]=useState(true);
-
-    const initialise= async ()=>{
-
-        const movies= await getAllMovies();
-        console.log(movies);
-        setMovieList(movies.data);
-        setIsLoading(false);
-
+        const result = await getAllMovies();
+        console.log(result);
+        setMovieList(result.data);
+        setPageLoading(false);
+    
     }
 
-    const getLoader=()=>{
-        return isLoading &&  <div  className="d-flex my-5 justify-content-center align-item-center" >
-        <CSpinner variant="grow"/>
-        </div>
-    }
+    useEffect(() => {
+        init();
+      }, [])
 
-    useEffect(()=>{
-        initialise();
+      const selectedMovie = (movieName) => {
+          movieList.findIndex(function(movie) {
+            return movie.name.toUpperCase() === movieName.toUpperCase()
+          });
+      }
 
-    },[]);
-
-    return (
-        <div>
-            <Navbar/>
-
-            <div style={{minHeight:"85vh"}}>
-
-            {getLoader()}
-
-
+      const render = () => {
+        return ( 
+          <>
+            <Navbar movies={movieList.map((movie)=>movie.name)}  onMovieSelect={selectedMovie}/>
             {
-
-            !isLoading && 
-
-            (
-                <>
-                <Slider/>
-
-            <div className="container my-4" >
-
-                <h5> Recomended Movies </h5>
-
-                <div className="row">
-
-                {
-                    movieList.map((movie)=>{
-                        
-
-                        return <div className="col-lg-3 col-xs-6 my-2" >
-                            <Link to={`/movie/${movie._id}/details`} >
-                            <div className="d-flex justify-content-center align-items-stretch" style={{height:"30rem"}}>
-
-                                <div style={{width:"20rem"}} className="card bg-dark" >
-
-                                    <img style={{height:"80%"}}src={movie.posterUrl} className="card-img-top" alt="movie"/>
-
-                                    <div className="p-2" >
-                                    
-                                    <div className="d-flex justify-content-left align-items-center" >
-                                    <HandThumbsUpFill className="text-success" />
-                                    <span className="text-success px-2" >58K</span>
-                                    </div>
-
-
-                                    <p  className="text-white fw-bolder px-2 fs-5" > {movie.name} </p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            </Link>
-                        </div>
-
-                    })
-                }
-                </div>
-
-            </div>
-            </> 
-            
-            )
+              !pageLoading ? (
+                <>  
+                  <Slider />
+                  <div className="container my-4">
+                      <p className="fw-bolder">Recomended Movies</p>
+                      <div className="row">
+                          {
+                              movieList.map((movie) =>(
+                              <div className="col-lg-3 col-xs-6  my-2" key={movie._id}>
+                                <Link key={movie._id} to={`/movie/${movie._id}/details`}>
+                                  <div className="d-flex align-items-stretch" style={{height: 25 + 'rem'}}>
+                                      <div className="card bg-dark shadow-lg" style={{width: 14 + "rem"}}>
+                                          <img src={movie.posterUrl} className="card-img-top" alt="..." style={{height: '100%'}}/>
+                                          <i className="bi bi-hand-thumbs-up-fill text-success px-2 ">58k </i>  
+                                          <p className="text-white fw-bolder px-2">{movie.name}</p>    
+                                      </div>
+                                      </div>
+                                </Link>
+                              </div>
+                              
+                          ))
+                          }
+                          
+                      </div>
+                      
+                  </div>
+                  <Footer/>
+                </>
+              ):<div className="d-flex justify-content-center align-items-center vh-100">
+                <img src ={Loader} alt="loading.." />
+              </div>
+              
             }
-      </div>
+            
+          </>
+        )
+      }
 
-        <Footer/>    
-        </div>
-        
-    )
+      return ( 
+              render()
+        )
+    
 }
 
 export default LandingPage;

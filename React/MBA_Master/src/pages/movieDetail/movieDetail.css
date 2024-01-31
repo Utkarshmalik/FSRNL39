@@ -1,13 +1,24 @@
-.video{
-    height:100vh;
-   
-}
-
 .box{
-
     display: flex;
-    height:60vh;
     justify-content: center;
     align-items: center;
-    width:100vw;
+    width: 100vw;
+    height: 60vh;
+    
+}
+
+.video{
+    height: 100vh;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .backg{
+    background-image: url("../../assets/img.jpg");
 }
