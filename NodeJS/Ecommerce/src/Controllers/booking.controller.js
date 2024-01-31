@@ -30,8 +30,6 @@ exports.createBooking = async (req,res)=>{
 }
 
 exports.getAllBookings = async (req,res)=>{
-
-
     try{
         const bookings = await BookingModel.find({}).populate("movieId").populate("theatreId").populate("userId");
 
