@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getMovieDetails } from "../../api/movies";
 import NavbarComp from "../../components/common/Navbar/Navbar";
 import ReactPlayer from "react-player";
@@ -64,11 +64,18 @@ function MovieDetail(){
                         <h5> Cast </h5>  
 
                         {
-                            movieData.casts.map(name=> <li className="list-group-item" > {name}  </li>)
+                            movieData.cast.map(name=> <li className="list-group-item" > {name}  </li>)
                         }
 
 
-                        <Button className="my-5 text-light p-2" variant="danger"> Book Tickets  </Button>
+                        <Button className="my-5 text-light p-2" variant="danger"> 
+
+                        <Link to={`/buyTickets/${selectedMovie}`}>
+                        Book Tickets  
+                        </Link>
+
+                        
+                        </Button>
 
 
                      </div>  

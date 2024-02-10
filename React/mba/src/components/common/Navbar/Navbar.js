@@ -49,7 +49,7 @@ function NavbarComp() {
           <div>
 
 
-         <Button variant='light' className='px-3' onClick={onAuthBtnClick}  > 
+         <Button variant='light' className='px-3 m-2' onClick={onAuthBtnClick}  > 
 
          {
             (isLoggedIn) ? "Logout" :"LogIn"
@@ -60,7 +60,7 @@ function NavbarComp() {
          
 
 
-         <Button variant='light' className='px-3' onClick={onThemeToggle}  > 
+         <Button variant='light' className='px-3 m-2' onClick={onThemeToggle}  > 
 
          Toggle Theme 
           </Button>

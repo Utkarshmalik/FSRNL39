@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-// https://movie-booking-application.onrender.com/mba/api/v1/movies
 
 export const getAllMovies = ()=>{
 
